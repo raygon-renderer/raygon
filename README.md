@@ -3,7 +3,7 @@
 
 Raygon is a WIP high performance CPU path tracer written in the Rust programming language. It will feature state of the art light transport integrators including path tracing, bidirectional path tracing and VCM. Perhaps even more in the future.
 
-[Join our Discord Server](https://discord.gg/Y54gQxH) or [Support Raygon on Patreon](https://www.patreon.com/raygon)
+[Join our Discord Server](https://discord.gg/Y54gQxH) and consider [Supporting Raygon on Patreon](https://www.patreon.com/raygon)
 
 ### Example
 
