@@ -62,7 +62,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 
 ## Planned Features (not extensive)
 
-* Bidirectional Path Tracing and VMC (Vertex Connection and Merging)
+* Bidirectional Path Tracing and VCM (Vertex Connection and Merging)
 * Path Space Regularization
 * Plugins
     * Blender, Houdini, Amethyst, etc.
