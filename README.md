@@ -27,9 +27,9 @@ Raygon features a lightweight virtual machine for arbitrary material shader eval
 
 ### Film
 
-Raygon renders to a densely packed multi-channel film, with support for over 20 render channels such as Emission, World Normal, Direct and Indirection light, Roughness, Albedo, various object and material IDs, ThreadId, and so forth.
+Raygon renders to a densely packed multi-channel film, with support for over 20 render channels such as Emission, World Normal, Direct and Indirect light, Roughness, Albedo, various object and material IDs, ThreadId, and so forth.
 
-It also supports using unique direct/indirect light channels for different light groups, allowing the separation of different light sources and the combination of such in post-production. This can be used to tweak light emission intensity and color after the render has completed. Don't like a light? Turn it off in post.
+It also supports using unique direct/indirect light channels for different light groups, allowing the separation of different light sources and the combination of such in post-production. This can be used to tweak light emission intensity and color after the render has completed. Don't like a light? Turn it off in post or change its color entirely.
 
 ### Camera
 
