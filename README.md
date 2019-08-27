@@ -116,7 +116,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 * Bidirectional Path Tracing and VCM (Vertex Connection and Merging)
 * Path Space Regularization
 * Plugins
-    * Blender, Houdini, Amethyst, etc.
+    * Blender, Houdini, Unreal Engine 4, Amethyst, etc.
     * Provide a public C API for anyone
     * Provide a agnostic network API for anyone
 * LMBVH4 for even faster ray tracing with SIMD
