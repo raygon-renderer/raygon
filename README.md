@@ -43,7 +43,7 @@ While less than what a GPU can achieve for brute-force path tracing, Raygon will
 
 ### Color
 
-I'm currently working on implementing full spectral rendering via Hero Wavelength Spectrum Sampling for spectral renders without color noise. All integrators and BSDFs have already been made spectra-agnostic to support RGB or Spectral rendering, and effects such as UV light, fluorescence and diffraction are planned. Of course, refraction of wavelength-specific IORs will be supported.
+I'm currently working on implementing full spectral rendering via Hero Wavelength Spectrum Sampling for spectral renders without color noise. All integrators and BSDFs have already been made spectra-agnostic to support RGB or Spectral rendering, and effects such as UV light, fluorescence, iridescence and diffraction are planned. Of course, refraction of wavelength-specific IORs will be supported.
 
 ### Materials
 
