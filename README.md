@@ -17,6 +17,9 @@ Here is the latest rendered image created simply for the purposes of testing. It
 And an Ambient Occlusion demo used for the [Information](#Information) section
 ![AO Demo][ao_demo]
 
+Also here is a visualization of the BVH attained by counting how many AABB tests were performed during traversal:
+![BVH Demo][bvh_demo]
+
 # Current Features
 
 * [Performance](#performance)
@@ -133,4 +136,5 @@ You can even see a few debug logs from the material virtual machine optimizer.
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo]: ./assets/test34.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
+[bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
