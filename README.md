@@ -134,7 +134,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 <b id="f1">1</b> Free version will be limited to 720p resolutions, similar to how Houdini does their Apprentice version.
 
 [logo]: ./assets/logo48.png "Raygon Logo"
-[latest_demo]: ./assets/test34.png "Latest test render"
+[latest_demo]: ./assets/test50_2.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
