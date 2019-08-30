@@ -17,11 +17,14 @@ Outdoor with environment map | Indoor with emissive mesh
 -----------------------------|--------------------------
 ![Demo][latest_demo]         | ![Demo 2][latest_demo2]
 
-And an Ambient Occlusion demo used for the [Information](#Information) section
-![AO Demo][ao_demo]
+Ambient Occlussion  | BVH Visualization
+--------------------|------------------
+![AO Demo][ao_demo] | ![BVH Demo][bvh_demo]
 
-Here is a visualization of the BVH attained by counting how many AABB tests were performed during traversal:
-![BVH Demo][bvh_demo]
+The AO render was used for the [Information](#Information) section example.
+
+The BVH visualization was attained by counting how many AABB tests were performed during traversal.
+
 
 # Current Features
 
