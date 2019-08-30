@@ -17,7 +17,7 @@ Outdoor with environment map | Indoor with emissive mesh
 -----------------------------|--------------------------
 ![Demo][latest_demo]         | ![Demo 2][latest_demo2]
 
-Ambient Occlussion  | BVH Visualization
+Ambient Occlusion   | BVH Visualization
 --------------------|------------------
 ![AO Demo][ao_demo] | ![BVH Demo][bvh_demo]
 
