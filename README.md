@@ -11,13 +11,16 @@ I try to keep my Discord up to date with what I'm doing and encourage feedback.
 
 ### Example
 
-Here is the latest rendered image created simply for the purposes of testing. Its quality is not indicative of the final product, but it shows how far along the project is.
-![Demo][latest_demo]
+Here are some recent rendered images created simply for the purposes of testing. Their quality is not indicative of the final product, but it shows how far along the project is.
+
+Outdoor with environment map | Indoor with emissive mesh
+-----------------------------|--------------------------
+![Demo][latest_demo]         | ![Demo 2][latest_demo2]
 
 And an Ambient Occlusion demo used for the [Information](#Information) section
 ![AO Demo][ao_demo]
 
-Also here is a visualization of the BVH attained by counting how many AABB tests were performed during traversal:
+Here is a visualization of the BVH attained by counting how many AABB tests were performed during traversal:
 ![BVH Demo][bvh_demo]
 
 # Current Features
@@ -37,7 +40,7 @@ Also here is a visualization of the BVH attained by counting how many AABB tests
 
 Much effort has been put into creating the fastest code possible. Raygon uses a custom hand-written linear algebra library based on `packed_simd`, making use of explicit SIMD wherever possible. Final binaries will be precompiled for specific architectures to make full use of SSE and AVX instruction sets on modern hardware.
 
-Currently, Raygon just uses a regular LBVH generated with a simple SAH heuristic, which achieves performance up to 18 Million rays per second on 29 threads with an AMD Threadripper 1950X, or around 620,000 rays/second per thread. It is probably faster on modern AMD and Intel CPUs.
+Currently, Raygon just uses a regular LBVH generated with a simple SAH heuristic, which achieves performance up to 18 Million rays per second on 29 threads with an AMD Threadripper 1950X, or around 620,000 rays/second per thread. I was able to test Raygon on an Intel i9 9900K and it acheived over 1.1 Million rays per second **per thread**.
 
 While less than what a GPU can achieve for brute-force path tracing, Raygon will support complex light transports that simply can't be run on a GPU, making this performance advantageous over competing renderers.
 
@@ -109,7 +112,7 @@ Raygon has been designed to have anything and everything report its memory usage
 Here is the debug output from rendering the Ambient Occlusion example, rendered with a debug build.
 ![Debug Log][debug_log]
 
-This particular run did not have the profiler enabled, so times show 0ns
+This particular run did not have the profiler enabled, so times show 0ns. Furthermore, I have since improved performance another 10%-20%.
 
 You can even see a few debug logs from the material virtual machine optimizer.
 
@@ -135,6 +138,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo]: ./assets/test50_2.png "Latest test render"
+[latest_demo2]: ./assets/test51.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
