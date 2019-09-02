@@ -13,17 +13,23 @@ I try to keep my Discord up to date with what I'm doing and encourage feedback.
 
 Here are some recent rendered images created simply for the purposes of testing. Their quality is not indicative of the final product, but it shows how far along the project is.
 
-Outdoor with environment map | Indoor with emissive mesh
------------------------------|--------------------------
-![Demo][latest_demo]         | ![Demo 2][latest_demo2]
+Outdoor with environment map   | Indoor with emissive mesh
+:-----------------------------:|:--------------------------:
+![Demo][latest_demo]           | ![Demo 2][latest_demo2]
 
-Ambient Occlusion   | BVH Visualization
---------------------|------------------
-![AO Demo][ao_demo] | ![BVH Demo][bvh_demo]
+Ambient Occlusion     | BVH Visualization
+:--------------------:|:------------------:
+![AO Demo][ao_demo]   | ![BVH Demo][bvh_demo]
+
+Signed Distance Field Mandelbulb animation:
+![SDF Fractal][fractal2]
+
 
 The AO render was used for the [Information](#Information) section example.
 
 The BVH visualization was attained by counting how many AABB tests were performed during traversal.
+
+The Mandelbulb render adjusts the power over time, and even applies motion blur to the algorithm itself!
 
 
 # Current Features
@@ -79,7 +85,7 @@ In the future, it may be possible to write custom camera scripts for more comple
 
 Raygon supports triangles/triangle meshes, cubic Bézier splines, and perfect spheres (for lights and particles).
 
-Additionally, Raygon will support signed distance field shapes, allowing for infinitely detailed procedural shapes not limited to complex mathematical shapes and fractals.
+Additionally, Raygon supports signed distance field shapes, allowing for infinitely detailed procedural shapes not limited to complex mathematical shapes and fractals.
 
 #### Phong Tessellation
 
@@ -145,3 +151,4 @@ You can even see a few debug logs from the material virtual machine optimizer.
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
+[fractal2]: ./assets/fractal2.gif "Fractal"
