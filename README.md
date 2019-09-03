@@ -13,6 +13,9 @@ I try to keep my Discord up to date with what I'm doing and encourage feedback.
 
 Here are some recent rendered images created simply for the purposes of testing. Their quality is not indicative of the final product, but it shows how far along the project is.
 
+Latest render, rendered at 4K and scaled down to 1080p with bilinear interpolation
+![Demo 3][latest_demo3]
+
 Outdoor with environment map   | Indoor with emissive mesh
 :-----------------------------:|:--------------------------:
 ![Demo][latest_demo]           | ![Demo 2][latest_demo2]
@@ -148,6 +151,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo]: ./assets/test50_2.png "Latest test render"
 [latest_demo2]: ./assets/test51.png "Latest test render"
+[latest_demo3]: ./assets/test66_small.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
