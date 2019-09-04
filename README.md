@@ -151,7 +151,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo]: ./assets/test50_2.png "Latest test render"
 [latest_demo2]: ./assets/test51.png "Latest test render"
-[latest_demo3]: ./assets/test69.png "Latest test render"
+[latest_demo3]: ./assets/test73_2.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
