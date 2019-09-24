@@ -13,15 +13,13 @@ I try to keep my Discord up to date with what I'm doing and encourage feedback.
 
 Here are some recent rendered images created simply for the purposes of testing. Their quality is not indicative of the final product, but it shows how far along the project is.
 
-Latest render:
+Latest renders:
 ![Demo 3][latest_demo3]
 
-Outdoor with environment map   | Indoor with emissive mesh
-:-----------------------------:|:--------------------------:
-![Demo][latest_demo]           | ![Demo 2][latest_demo2]
+![Demo 2][latest_demo2]
 
 Ambient Occlusion     | BVH Visualization
-:--------------------:|:------------------:
+:--------------------:|:--------------------:
 ![AO Demo][ao_demo]   | ![BVH Demo][bvh_demo]
 
 Signed Distance Field Mandelbulb animation:
@@ -52,7 +50,11 @@ The Mandelbulb render adjusts the power over time, and even applies motion blur 
 
 Much effort has been put into creating the fastest code possible. Raygon uses a custom hand-written linear algebra library based on `packed_simd`, making use of explicit SIMD wherever possible. Final binaries will be precompiled for specific architectures to make full use of SSE and AVX instruction sets on modern hardware.
 
-Currently, Raygon just uses a regular LBVH generated with a simple SAH heuristic, which achieves performance up to 18 Million rays per second on 29 threads with an AMD Threadripper 1950X, or around 620,000 rays/second per thread. I was able to test Raygon on an Intel i9 9900K and it acheived over 1.1 Million rays per second **per thread**.
+Currently, Raygon just uses a regular LBVH generated with a simple SAH heuristic, which achieves performance up to 28 Million rays per second on 28 threads with an AMD Threadripper 1950X, or around 1,000,000 rays/second per thread.
+
+Furthermore, some renders which acheived around 620,000 rays per second per core on my machine acheived over 1.1 Million rays per second **per thread** on an Intel i9 9900K.
+
+Complex scenes such as the living room demo above acheive around 13,000,000 rays per second on average.
 
 While less than what a GPU can achieve for brute-force path tracing, Raygon will support complex light transports that simply can't be run on a GPU, making this performance advantageous over competing renderers.
 
@@ -149,9 +151,8 @@ You can even see a few debug logs from the material virtual machine optimizer.
 <b id="f1">1</b> Free version will be limited to 720p resolutions, similar to how Houdini does their Apprentice version.
 
 [logo]: ./assets/logo48.png "Raygon Logo"
-[latest_demo]: ./assets/test50_2.png "Latest test render"
-[latest_demo2]: ./assets/test51.png "Latest test render"
-[latest_demo3]: ./assets/test73_2.png "Latest test render"
+[latest_demo2]: ./assets/test173.png "Latest test render"
+[latest_demo3]: ./assets/test176.png "Latest test render"
 [ao_demo]: ./assets/test35.png "AO Demo"
 [bvh_demo]: ./assets/test37.png "BVH Demo"
 [debug_log]: ./assets/debug_log.png "Debug Log"
