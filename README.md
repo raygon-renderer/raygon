@@ -126,7 +126,7 @@ Raygon has been designed to have anything and everything report its memory usage
 Here is the debug output from rendering the Ambient Occlusion example, rendered with a debug build.
 ![Debug Log][debug_log]
 
-This particular run did not have the profiler enabled, so times show 0ns. Furthermore, I have since improved performance another 10%-20%.
+This particular run did not have the profiler enabled, so times show 0ns. Furthermore, I have since improved performance another 30%-40%.
 
 You can even see a few debug logs from the material virtual machine optimizer.
 
