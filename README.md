@@ -1,6 +1,12 @@
 ![Raygon Logo][logo] Raygon
 ===========================
 
+## Announcements
+
+* [This Month in Raygon 1](./blogs/month-1md)
+
+# Raygon
+
 Raygon is a WIP high performance proprietary CPU path tracer written in the Rust programming language. It will feature state of the art light transport integrators including path tracing, bidirectional path tracing and VCM. Perhaps even more in the future.
 
 When released, the pricing will be significantly cheaper than competing products, and I may make the source code available to indie studios or higher. It will also feature a free version for learning<sup>[1](#f1)</sup>. Plugins will of course be open source and freely available for as many programs I can write them for.
@@ -16,22 +22,13 @@ Here are some recent rendered images created simply for the purposes of testing.
 Latest renders:
 ![Demo 3][latest_demo3]
 
-![Demo 2][latest_demo2]
+Extreme stress-test for object instancing with over **65 Billion** effective triangles, and also using an HDRi with environment importance sampling. Some of the tree leaves also used alpha-masked materials for greater detail.
+![Demo 1][latest_demo1]
 
-Ambient Occlusion     | BVH Visualization
-:--------------------:|:--------------------:
-![AO Demo][ao_demo]   | ![BVH Demo][bvh_demo]
+![Demo 2][latest_demo2]
 
 Signed Distance Field Mandelbulb animation:
 ![SDF Fractal][fractal2]
-
-
-The AO render was used for the [Information](#Information) section example.
-
-The BVH visualization was attained by counting how many AABB tests were performed during traversal.
-
-The Mandelbulb render adjusts the power over time, and even applies motion blur to the algorithm itself!
-
 
 # Current Features
 
@@ -43,7 +40,6 @@ The Mandelbulb render adjusts the power over time, and even applies motion blur 
 * [Primitives](#primitives)
 * [Lighting](#lighting)
 * [Animation](#animation)
-* [Information](#information)
 * [Planned Features](#planned-features-not-extensive)
 
 ### Performance
@@ -88,17 +84,20 @@ In the future, it may be possible to write custom camera scripts for more comple
 
 ### Primitives
 
-Raygon supports triangles/triangle meshes, cubic Bézier splines, and perfect spheres (for lights and particles).
+Raygon will include initial support for:
+
+* Triangles/triangle meshes
+* Cubic Bézier splines
+* Perfect Spheres
+* Perfect Disks
+
+Others may be added later, but only if they add significant advantages over the existing.
 
 Additionally, Raygon supports signed distance field shapes, allowing for infinitely detailed procedural shapes not limited to complex mathematical shapes and fractals.
 
-#### Phong Tessellation
-
-I recently came across a paper describing how to ray-trace Phong tessellated triangles, with a drop-in replacement for regular triangle intersection code. It works by defining a curved surface from a single triangle and its vertex normals, and tracing that. This would reduce polygonal artifacts drastically, both in shading and shadows. However, this is a long-term plan.
-
 #### Thin geometry
 
-We plan to implement "thin" geometry for subsurface scattering and transmission, allowing for faster rendering of panes of glass or soap bubbles, and similar. It will probably be named "Solidify" after Blender's modifier tool which does something similar on real geometry.
+We plan to implement "thin" geometry for subsurface scattering and transmission, allowing for faster rendering of panes of glass, soap bubbles, leaves/foliage, and similar. It will probably be named "Solidify" after Blender's modifier tool which does something similar on real geometry.
 
 ### Lighting
 
@@ -115,20 +114,9 @@ The choice to avoid explicit point lights or directional lights was mostly becau
 
 ### Animation
 
-Raygon already partially supports integrating through time in the form of animated transformations, allowing for accurate motion blur of shapes, lights and cameras. Anything and everything can have motion.
+Raygon already partially supports integrating through time in the form of animated transformations, allowing for accurate motion blur of shapes, lights and cameras. Support for motion vectors is in progress.
 
 Future work with this involves sampling many sub-frame keyframes and using analytic solutions to motion blur such as Time Interval Ray Tracing, which can converge in a single sample!
-
-### Information
-
-Raygon has been designed to have anything and everything report its memory usage. Almost every single byte is accounted for and can be printed in the debug modes.
-
-Here is the debug output from rendering the Ambient Occlusion example, rendered with a debug build.
-![Debug Log][debug_log]
-
-This particular run did not have the profiler enabled, so times show 0ns. Furthermore, I have since improved performance another 30%-40%.
-
-You can even see a few debug logs from the material virtual machine optimizer.
 
 ## Planned Features (not extensive)
 
@@ -151,9 +139,7 @@ You can even see a few debug logs from the material virtual machine optimizer.
 <b id="f1">1</b> Free version will be limited to 720p resolutions, similar to how Houdini does their Apprentice version.
 
 [logo]: ./assets/logo48.png "Raygon Logo"
+[latest_demo1]: ./assets/test216.png "Latest test render"
 [latest_demo2]: ./assets/test173.png "Latest test render"
-[latest_demo3]: ./assets/test176.png "Latest test render"
-[ao_demo]: ./assets/test35.png "AO Demo"
-[bvh_demo]: ./assets/test37.png "BVH Demo"
-[debug_log]: ./assets/debug_log.png "Debug Log"
+[latest_demo3]: ./assets/test198.png "Latest test render"
 [fractal2]: ./assets/fractal2.gif "Fractal"
