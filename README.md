@@ -3,7 +3,7 @@
 
 ## Announcements
 
-* [This Month in Raygon 1](./blogs/month-1md)
+* [This Month in Raygon 1](./blogs/month-1.md)
 
 # Raygon
 
