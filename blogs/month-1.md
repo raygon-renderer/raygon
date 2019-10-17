@@ -24,13 +24,13 @@ This image was rendered only a couple weeks after getting triangles to the scree
 In the past couple months I've implemented almost the entire path tracer. Physically based textures/procedural materials, light sampling, environment sampling, and more:
 
 * Full path tracing
-* Pixel Filter Importance Sampling (FIS)
+* Pixel [Filter Importance Sampling](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.183.3579&rep=rep1&type=pdf) (FIS)
     * All renders shown below use a Blackman-Harris filter
     * FIS is generally equal or better quality than traditional splatting, while being incredibly easy to implement and integrate into highly concurrent rendering systems like Raygon.
 * Physically based materials
     * GGX Microfacet distribution for specular and Oren-Nayar for diffuse
         * About halfway through implementing multiscatter GGX for even more accurate materials
-    * Uses the relatively recent GGX Visible-Normal Distribution Function
+    * Uses the relatively recent [GGX Visible-Normal Distribution Function](http://jcgt.org/published/0007/04/01/paper.pdf)
         * i.e. it doesn't sample directions that are impossible and focuses on important areas
 * Basic Texture sampling
     * Textures are lazily loaded as materials are encountered
