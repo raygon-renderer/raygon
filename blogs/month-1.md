@@ -1,9 +1,11 @@
 This Month in Raygon 1
 ========================
 
-It's been about 50 days since I first announced Raygon, a WIP high performance CPU path tracer written in the Rust programming language, which will eventually feature state of the art light transport integrators including path tracing, bidirectional path tracing and VCM.
+It's been about 51 days since I first announced Raygon, a WIP high performance CPU path tracer written in the Rust programming language, which will eventually feature state of the art light transport integrators including path tracing, bidirectional path tracing and VCM.
 
 In that time I've worked day and night to build what you're about to see. In this post I'll go over some of those things and show some recent renders, then talk about the future of Raygon and how you can help.
+
+Feel free to skip to [Renders](#renders).
 
 ## Look back
 
@@ -19,11 +21,11 @@ Click to expand the old WIP image
 
 This image was rendered only a couple weeks after getting triangles to the screen at all, and I was quite excited to share the progress. However, it's not very impressive in retrospect.
 
-At that time, I had spent five or six months working on the foundations for Raygon, including most notably an extremely high performance virtual machine for complex procedural material evaluation, and a low-level linear algebra library from scratch based on `packed_simd`.
+At that time, I had spent five or six months working on the foundations for Raygon, including most notably an extremely high performance virtual machine for complex procedural material evaluation, and a low-level linear algebra library from scratch based on `packed_simd`. However, the actual rendering process was still very immature. Much has changed since then.
 
 # Current Status
 
-Since the first announcement, I've implemented:
+In the past couple months I've implemented almost the entire path tracer. Physically based textures/procedural materials, light sampling, environment sampling, and more:
 
 * Full path tracing
 * Pixel Filter Importance Sampling (FIS)
@@ -67,6 +69,8 @@ Since the first announcement, I've implemented:
     * Uses new `simd` intrinsics where possible, and robust approximations otherwise.
 * Efficient low-overhead profiling tools
 
+# Renders
+
 Though, I think the best way to show where the project is at today is visually:
 
 The same living room now:
@@ -95,7 +99,7 @@ These aren't in any particular order.
 
 ### Spectral Rendering
 
-One of the biggest features in the works right now is spectral rendering, which will allow for reflective/refractive dispersion, thin-film interference, perfect blackbody radiation,  fluorescence, and polarization. My implementation will be based on the Hero-wavelength method, with some new advancements in color upsampling.
+One of the most important features in the works right now is spectral rendering, which will allow for reflective/refractive dispersion, thin-film interference, perfect blackbody radiation,  fluorescence, and polarization. My implementation will be based on the Hero-wavelength method, with some new advancements in color upsampling.
 
 ### Bidirectional Path Tracing and SPPM/VCM
 
@@ -115,7 +119,11 @@ Of course, a file format isn't sufficient for interactive rendering from a plugi
 
 There is always new research being published, and I want to incorperate the latest graphics science into Raygon.
 
-### Multiscatter GGX
+### Transmission, Transparency and Translucency
+
+Transmission is planned immediately after this update blog, and is already in progress. Special support for "thin" objects is also being worked on, allowing for something like thin glass windows to be simulated using only a single plane or one-sided mesh, rather than multiple layers of geometry.
+
+### [Multiscatter GGX](https://eheitzresearch.wordpress.com/240-2/)
 
 This is a fairly high priority feature that needs to be implemented as soon as possible. It gives much greater realisism to rough surfaces and especially rough glass, as it does not lose energy from ignored scattering events in the material surface.
 
@@ -125,7 +133,7 @@ Currently, Raygon is just using a plain old dumb random sampler for everything. 
 
 This was chosen originally because for one it's incredibly easy to implement and use, and second because traditional stratified samplers were not initially possible given some of the other features I've implemented (i.e. material shaders can sample random numbers, adaptive number of samplers per pixel, etc.).
 
-However, very recently a new algorithm has come to my attention for *progressively* generating stratified samples, which is ideal for Raygon. I plan to implement this very soon, and doing so should reduce noise in renders drastically.
+However, very recently a [new algorithm](https://graphics.pixar.com/library/ProgressiveMultiJitteredSampling/) has come to my attention for *progressively* generating stratified samples, which is ideal for Raygon. I plan to implement this very soon, and doing so should reduce noise in renders drastically.
 
 ### Textures
 
