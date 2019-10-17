@@ -3,7 +3,7 @@ This Month in Raygon 1
 
 It's been about 51 days since I first announced Raygon, a WIP high-performance CPU path tracer written in the Rust programming language, which will feature state of the art light transport integrators, including path tracing, bidirectional path tracing and VCM.
 
-In this post I'll go over some of features implemented or improved, and show some recent renders, then talk about the future of Raygon and how you can help.
+In this post I'll go over some of the features implemented or improved, and show some recent renders, then talk about the future of Raygon and how you can help.
 
 ## Look Back
 
