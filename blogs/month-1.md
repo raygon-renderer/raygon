@@ -1,27 +1,23 @@
 This Month in Raygon 1
 ========================
 
-It's been about 51 days since I first announced Raygon, a WIP high performance CPU path tracer written in the Rust programming language, which will eventually feature state of the art light transport integrators including path tracing, bidirectional path tracing and VCM.
+It's been about 51 days since I first announced Raygon, a WIP high-performance CPU path tracer written in the Rust programming language, which will feature state of the art light transport integrators, including path tracing, bidirectional path tracing and VCM.
 
-In that time I've worked day and night to build what you're about to see. In this post I'll go over some of those things and show some recent renders, then talk about the future of Raygon and how you can help.
+In this post I'll go over some of features implemented or improved, and show some recent renders, then talk about the future of Raygon and how you can help.
 
-Feel free to skip to [Renders](#renders).
+## Look Back
 
-## Look back
-
-However, before we get into all of that, I think it's important to show where the project was at on August 24th:
+Before we get into the updates, it's important to remember where the project was at on August 24th:
 
 <details>
 <summary>
-Click to expand the old WIP image
+Click to expand the old demo image
 </summary>
 
 ![Old Demo][old_demo]
 </details>
 
-This image was rendered only a couple weeks after getting triangles to the screen at all, and I was quite excited to share the progress. However, it's not very impressive in retrospect.
-
-At that time, I had spent five or six months working on the foundations for Raygon, including most notably an extremely high performance virtual machine for complex procedural material evaluation, and a low-level linear algebra library from scratch based on `packed_simd`. However, the actual rendering process was still very immature. Much has changed since then.
+This image was rendered only a couple weeks after getting triangles to the screen at all. Much has changed since then.
 
 # Current Status
 
@@ -71,7 +67,7 @@ In the past couple months I've implemented almost the entire path tracer. Physic
 
 # Renders
 
-Though, I think the best way to show where the project is at today is visually:
+Though, the best way to show where the project is at today is visually:
 
 The same living room now:
 ![Test 198][test198]
@@ -87,7 +83,7 @@ And here, just a few hours before writing this, I added initial support for phys
 
 # The Near Future
 
-Before going into what features are planned and in-progress, I want to make it clear that I cannot continue this project without your help. Consider supporting Raygon on [Patreon](https://www.patreon.com/raygon) or [Ko-Fi](https://www.ko-fi.com/raygon). All donations count torwards licenses when Raygon eventually fully releases. Furthermore, donating just $30 will give you a lifetime personal license, and $50 will get your name featured in the executable itself.
+Support Raygon on [Patreon](https://www.patreon.com/raygon) or [Ko-Fi](https://www.ko-fi.com/raygon). All donations count torwards licenses when Raygon eventually fully releases. Furthermore, donating just $30 will give you a lifetime personal license, and $50 will get your name featured in the executable itself.
 
 Feel free to [Join our Discord Server](https://discord.gg/Y54gQxH) as well.
 
@@ -109,11 +105,11 @@ With the unidirectional path tracer mostly complete at this point aside from vol
 
 Currently, scenes are either procedurally generated (such as the grass and trees render) or loaded from `.obj`/`.mtl` files, with materials being generated from the `mtl`.
 
-I'd like to spend time on creating a formal scene description format for anything and everything Raygon can render, in a way that is both human and machine readable/writable.
+The next step is to create a formal scene description format for anything and everything Raygon can render, in a way that is both human and machine readable/writable. Nested descriptions across multiple files will be supported to build up complex scenes of manual and procedural scenes.
 
 ### Websocket API
 
-Of course, a file format isn't sufficient for interactive rendering from a plugin such as in Blender. To that end, the next step is to create a websocket-based API for communicating assets and rendered images (final and in-progress pixels/tiles) between Raygon and plugins. Perhaps even an extra small web interface for monitoring render progress in realtime.
+Of course, a file format alone isn't sufficient for interactive rendering from a plugin such as in Blender. To that end, the next step is to create a websocket-based API for communicating assets and rendered images (final and in-progress pixels/tiles) between Raygon and plugins. Perhaps even an extra small web interface for monitoring render progress in realtime.
 
 ## Refinement of Existing Features
 
@@ -137,17 +133,35 @@ However, very recently a [new algorithm](https://graphics.pixar.com/library/Prog
 
 ### Textures
 
-Although basic textures are implemented, the next step is to implement MIP mapping and anisotropic trilinear filtering. Additionally, normal maps should ideally be compressed to use only two texture channels (as they are unit vectors, it's very easy to recalculate a missing component) to save space.
+Basic textures are implemented, and the next step is to implement MIP mapping and anisotropic trilinear filtering. Additionally, normal maps will ideally be compressed to use only two texture channels (as they are unit vectors, it's very easy to recalculate a missing component) to save space.
 
 Long-term goals with textures are to implement a megatexture-like streaming system for transparently loading and unloading parts of textures as they are used, which can drastically reduce core memory usage.
 
 ### Deformation with Motion Blur
 
-Vertex displacement and mesh deformation is planned, with support for ray-traced motion blur. Animated fluids, morphs and skeletal meshes should be made possible by this.
+Procedural vertex shaders with displacement and mesh deformation are planned, with support for stochastic ray-traced motion blur. Animated fluids, morphs and skeletal meshes will be made possible by this.
+
+## Long-Term Plans
+
+### WebAssembly
+
+With Rust's WASM support coming along nicely, it may eventually be possible to compile the entirety of Raygon for use in a web browser as an easy to use networked render node with near-native performance.
+
+Although, as it won't be perfectly native performance, especially if WASM SIMD support isn't added by then, a couple of such render nodes will be provided for free for all license tiers, and probably only available on a local network given the bandwidth requirements.
+
+### Heterogeneous Volumes
+
+Heterogeneous Volumes are a difficult problem in Rust, though not for any limitation in Rust itself. OpenVDB is the industry standard method for representing such volumes, but sadly OpenVDB is written in C++. It will take time to either bridge that gap efficiently or reimplement the necessary parts for rendering.
+
+### Denoiser Integration
+
+[Bayesian Collaborative Denoising](https://github.com/superboubek/bcd) will be implemented and used as the default denoiser for final beauty images. However, if you would prefer something like Intel's OIDN or Nvidia OptiX, Raygon will easily be able to export Deep Image render layers (depth, normal, albedo, etc.) for use in those.
 
 # Conclusion
 
-Raygon is the culmination of my years of self-taught knowledge and desires for the best renderer possible. While it's not there yet, I'm determined to see it through. With your support and donations, time is the only factor in what can be accomplished.
+Raygon still has a breadth of work before it can be fully usable. Your support will ensure appropriate resources and time can be devoted to ensuring its completion. There is nothing we can't do.
+
+Thank you for reading.
 
 [old_demo]: ./assets/test34.png "Old Demo"
 [test173]: ../assets/test173.png "Test 173"
