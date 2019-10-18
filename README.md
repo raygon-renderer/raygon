@@ -141,5 +141,5 @@ Future work with this involves sampling many sub-frame keyframes and using analy
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo1]: ./assets/test216.png "Latest test render"
 [latest_demo2]: ./assets/test173.png "Latest test render"
-[latest_demo3]: ./assets/test198.png "Latest test render"
+[latest_demo3]: ./assets/test218.png "Latest test render"
 [fractal2]: ./assets/fractal2.gif "Fractal"

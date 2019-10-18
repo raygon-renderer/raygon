@@ -70,7 +70,7 @@ In the past couple months I've implemented almost the entire path tracer. Physic
 Though, the best way to show where the project is at today is visually:
 
 The same living room now:
-![Test 198][test198]
+![Test 198][test218]
 
 Here is an extreme stress-test for object instancing with over **65 Billion** effective triangles, and also using an HDRi with environment importance sampling. Some of the tree leaves also used alpha-masked materials for greater detail.
 ![Test 216][test216]
@@ -165,6 +165,6 @@ Thank you for reading.
 
 [old_demo]: ./assets/test34.png "Old Demo"
 [test173]: ../assets/test173.png "Test 173"
-[test198]: ../assets/test198.png "Test 198"
+[test218]: ../assets/test218.png "Test 198"
 [test216]: ../assets/test216.png "Test 216"
 [test213]: ./assets/test213.png "Test 213"
