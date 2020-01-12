@@ -22,10 +22,18 @@ Here are some recent rendered images created simply for the purposes of testing.
 Latest renders:
 ![Demo 3][latest_demo3]
 
-Extreme stress-test for object instancing with over **65 Billion** effective triangles, and also using an HDRi with environment importance sampling. Some of the tree leaves also used alpha-masked materials for greater detail.
+Extreme stress-test for object instancing with over **80 Billion** effective triangles, and also using an HDRi with environment importance sampling. Some of the tree leaves also used alpha-masked materials for greater detail.
 ![Demo 1][latest_demo1]
 
+Here is a similar scene with 222 instanced lights (each an Icosahedron with 80 triangles) and about 21,891,323 total instances of grasses and trees. There are about 17,600 total triangle lights.
+
+After recent memory optimizations, this scene uses only 4.5GB to render.
+![Demo 4][latest_demo4]
+
 ![Demo 2][latest_demo2]
+
+Example showing textured blackbody emission. With spectral rendering, we can use real physical equations to model blackbody radiation, rather than some RGB approximation.
+![Demo 5][latest_demo5]
 
 Signed Distance Field Mandelbulb animation:
 ![SDF Fractal][fractal2]
@@ -56,7 +64,9 @@ While less than what a GPU can achieve for brute-force path tracing, Raygon will
 
 ### Color
 
-I'm currently working on implementing full spectral rendering via Hero Wavelength Spectrum Sampling for spectral renders without color noise. All integrators and BSDFs have already been made spectra-agnostic to support RGB or Spectral rendering, and effects such as UV light, fluorescence, iridescence and diffraction are planned. Of course, refraction of wavelength-specific IORs will be supported.
+Raygon features full spectral rendering via Hero Wavelength Spectrum sampling for spectral renders with little color noise. We use a recent spectal upsampling method for accurate color reproduction from RGB colors, with some additional tweaks for emissive materials. Materials and BSDFs are fully wavelength-aware.
+
+Additional effects such as UV light, fluorescence, iridescence and diffraction are planned.
 
 ### Materials
 
@@ -88,10 +98,11 @@ Raygon will include initial support for:
 
 * Triangles/triangle meshes
 * Cubic Bézier splines
-* Perfect Spheres
-* Perfect Disks
+* Spheres
+* Disks
+* Cylinders
 
-Others may be added later, but only if they add significant advantages over the existing.
+Others may be added later, but only if they add significant advantages over the existing primitives.
 
 Additionally, Raygon supports signed distance field shapes, allowing for infinitely detailed procedural shapes not limited to complex mathematical shapes and fractals.
 
@@ -120,12 +131,10 @@ Future work with this involves sampling many sub-frame keyframes and using analy
 
 ## Planned Features (not extensive)
 
-* Memory-optimized scene structure
 * Bidirectional Path Tracing and VCM (Vertex Connection and Merging)
 * Path Space Regularization
 * Plugins
     * Blender, Houdini, Unreal Engine 4, Amethyst, etc.
-    * Provide a public C API for anyone
     * Provide a agnostic network API for anyone
 * LMBVH4 for even faster ray tracing with SIMD
 * Many modern materials such as multi-scatter GGX
@@ -141,5 +150,7 @@ Future work with this involves sampling many sub-frame keyframes and using analy
 [logo]: ./assets/logo48.png "Raygon Logo"
 [latest_demo1]: ./assets/test216.png "Latest test render"
 [latest_demo2]: ./assets/test173.png "Latest test render"
-[latest_demo3]: ./assets/test218.png "Latest test render"
+[latest_demo3]: ./assets/denoised3.png "Latest test render"
+[latest_demo4]: ./assets/test251_denoised_wsky_upscaled_final.png "Latest test render"
+[latest_demo5]: ./assets/test247_denoised.png "Latest test render"
 [fractal2]: ./assets/fractal2.gif "Fractal"
