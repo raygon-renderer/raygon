@@ -56,7 +56,7 @@ Much effort has been put into creating the fastest code possible. Raygon uses a 
 
 Currently, Raygon just uses a regular LBVH generated with a simple SAH heuristic, which achieves performance up to 28 Million rays per second on 28 threads with an AMD Threadripper 1950X, or around 1,000,000 rays/second per thread.
 
-Furthermore, some renders which acheived around 620,000 rays per second per core on my machine acheived over 1.1 Million rays per second **per thread** on an Intel i9 9900K.
+Furthermore, some renders which achieved around 620,000 rays per second per core on my machine achieved over 1.1 Million rays per second **per thread** on an Intel i9 9900K.
 
 Complex scenes such as the living room demo above acheive around 13,000,000 rays per second on average.
 
@@ -72,7 +72,7 @@ Additional effects such as UV light, fluorescence, iridescence and diffraction a
 
 Raygon features a lightweight virtual machine for arbitrary material shader evaluation, allowing for complex procedural materials easily on-par with Blender Cycles, and vastly outclassing other industry renderers.
 
-The functionality provided and already implemented is based mostly on Cycles and Unreal Engine 4's material nodes. This includes a variety of unary and binary operators, transformations, vector utilities, color utilities, random number sampling, texture sampling, and color ramps. It's incrediibly easy to add even more as necessary.
+The functionality provided and already implemented is based mostly on Cycles and Unreal Engine 4's material nodes. This includes a variety of unary and binary operators, transformations, vector utilities, color utilities, random number sampling, texture sampling, and color ramps. It's incredibly easy to add even more as necessary.
 
 Furthermore, it includes a small but effective peephole optimizer for optimizing material programs. Non-trivial materials such as the color ramp example on the Buddha statue typically run in around 120 nanoseconds.
 
